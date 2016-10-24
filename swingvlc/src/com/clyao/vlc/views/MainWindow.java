@@ -59,6 +59,7 @@ import java.awt.FlowLayout;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
+import java.net.URLDecoder;
 
 /**
  * @author clyao
@@ -731,6 +732,7 @@ public class MainWindow extends JFrame {
 			if(v == JFileChooser.APPROVE_OPTION){
 				File file = chooser.getSelectedFile();
 				String videoPath = file.getAbsolutePath();
+				videoPath = URLDecoder.decode(videoPath, "UTF-8");
 				PlayMain.frame.getMediaPlayer().playMedia(videoPath);
 				System.out.println(videoPath);
 			}
